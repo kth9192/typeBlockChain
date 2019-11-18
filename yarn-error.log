@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js start
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add cryto-js
 
 PATH: 
   C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;CLASSPATH;C:\Users\kth\AppData\Roaming\npm\node_modules\npm;D:\nodejs\node_modules\npm\node_modules\express;C:\Program Files\Git\cmd;C:\Program Files\Java\jdk-11.0.2\\bin;C:\Users\kth\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\nodejs\;C:\Users\kth\.windows-build-tools\python27\;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\kth\AppData\Local\Microsoft\WindowsApps;C:\Users\kth\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\kth\AppData\Local\GitHubDesktop\bin;C:\Program Files\heroku\bin;C:\Program Files\JetBrains\PyCharm Community Edition 2019.2.3\bin;
@@ -14,12 +14,17 @@ Platform:
   win32 x64
 
 Trace: 
-  SyntaxError: C:\webproject\typeBlockChain\package.json: Unexpected token } in JSON at position 234
-      at JSON.parse (<anonymous>)
-      at C:\Users\kth\AppData\Roaming\nvm\v12.13.0\node_modules\yarn\lib\cli.js:1625:59
-      at Generator.next (<anonymous>)
-      at step (C:\Users\kth\AppData\Roaming\nvm\v12.13.0\node_modules\yarn\lib\cli.js:304:30)
-      at C:\Users\kth\AppData\Roaming\nvm\v12.13.0\node_modules\yarn\lib\cli.js:315:13
+  Error: https://registry.yarnpkg.com/cryto-js: Not found
+      at Request.params.callback [as _callback] (C:\Users\kth\AppData\Roaming\nvm\v12.13.0\node_modules\yarn\lib\cli.js:66926:18)
+      at Request.self.callback (C:\Users\kth\AppData\Roaming\nvm\v12.13.0\node_modules\yarn\lib\cli.js:140564:22)
+      at Request.emit (events.js:210:5)
+      at Request.<anonymous> (C:\Users\kth\AppData\Roaming\nvm\v12.13.0\node_modules\yarn\lib\cli.js:141536:10)
+      at Request.emit (events.js:210:5)
+      at IncomingMessage.<anonymous> (C:\Users\kth\AppData\Roaming\nvm\v12.13.0\node_modules\yarn\lib\cli.js:141458:12)
+      at Object.onceWrapper (events.js:299:28)
+      at IncomingMessage.emit (events.js:215:7)
+      at endReadableNT (_stream_readable.js:1183:12)
+      at processTicksAndRejections (internal/process/task_queues.js:80:21)
 
 npm manifest: 
   {
@@ -29,7 +34,7 @@ npm manifest:
     "main": "index.js",
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "tsc-watch --onSuccess \"node dist/index.js \" ",
+      "start": "tsc-watch --onSuccess \"node dist/index.js \" "
     },
     "repository": {
       "type": "git",
