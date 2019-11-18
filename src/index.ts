@@ -20,6 +20,13 @@ class Block {
     this.data = data;
     this.timestamp = timestamp;
   }
+
+  static validateStructure = (anyBlock: Block): boolean =>
+    typeof anyBlock.index === "number" &&
+    typeof anyBlock.hash === "string" &&
+    typeof anyBlock.previousHash === "string" &&
+    typeof anyBlock.data === "string" &&
+    typeof anyBlock.timestamp === "number";
 }
 
 const calculateBlockHash = (
@@ -59,9 +66,47 @@ const createNewBlock = (data: string): Block => {
     newTimestamp
   );
 
+  addBlock(newBlock);
   return newBlock;
 };
 
-console.log(createNewBlock("hello"), createNewBlock("bye"));
+const getHashforBlock = (anyBlock): string =>
+  calculateBlockHash(
+    anyBlock.index,
+    anyBlock.previousHash,
+    anyBlock.timestamp,
+    anyBlock.data
+  );
+
+const isBlockVailed = (
+  candidateBlock: Block,
+  previousBlock: Block
+): boolean => {
+  if (!Block.validateStructure(candidateBlock)) {
+    return false;
+  } else if (previousBlock.index + 1 !== candidateBlock.index) {
+    return false;
+  } else if (previousBlock.hash !== candidateBlock.previousHash) {
+    return false;
+  } else if (getHashforBlock(candidateBlock) !== candidateBlock.hash) {
+    return false;
+  } else {
+    return true;
+  }
+};
+
+const addBlock = (candidateBlock: Block): void => {
+  if (isBlockVailed(candidateBlock, getLatestBlock())) {
+    blockchain.push(candidateBlock);
+  } else {
+    console.log("추가실패");
+  }
+};
+
+createNewBlock("second block");
+createNewBlock("third block");
+createNewBlock("fourth block");
+
+console.log(blockchain);
 
 export {};
